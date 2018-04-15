@@ -5,12 +5,16 @@ import java.util.Scanner;
 public class Menu {
 	private static int opcion;
 	private static int opcion2=1;
-	public static void menu() {
+	modoEspera espera= new modoEspera();
+	Noticias noticia =new Noticias();
+	Horarios horario= new Horarios();
+	Scanner entero=new Scanner(System.in);
+	public void menu() {
 		System.out.println("Hola, ingrese opcion:");
 		System.out.println("[1] Ingresar horario");
 		System.out.println("[2] Modo ocupado");
 		System.out.println("[3] Salir");
-		Scanner entero=new Scanner(System.in);
+		
 		opcion=entero.nextInt();
 		
 		switch(opcion) {
@@ -20,41 +24,32 @@ public class Menu {
 			break;
 		case 2:
 			do { 
-				System.out.println("Modo ocupado");
-				System.out.println("Salir modo espera?");
-				System.out.println("[1] Si");
-				System.out.println("[2] No");
-				opcion2=entero.nextInt();
-				if(opcion2==1) {
-					noticias();
-					menu();
-					break;
-				}
+				espera.IngresarModoEspera();
+				noticias();
+				menu();
+				break;
 			}while(opcion2==2);
 		case 3:
 			entero.close();
-			
+			horario.LectorStr.close();
+			horario.LectorInt.close();;
+			espera.Lector.close();
 			break;
 		}
 	}
-	public static void ingresarHorario() {
-		Horarios horario= new Horarios();
+	public void ingresarHorario() {
+		
 		horario.ingresarHorario();
 		horario.getHorarios();
 		menu();
 		
 	}
 
-	public static void noticias() {
-		
-		Noticias noticia =new Noticias();
+	public void noticias() {
+
 		noticia.News();
 	}
-	public static void ModoEspera() {
-		modoEspera espera= new modoEspera();
-		espera.IngresarModoEspera();
-		
-	}
+
 	
 }
 
