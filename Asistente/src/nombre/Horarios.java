@@ -10,13 +10,17 @@ public class Horarios  {
 	Scanner LectorStr=new Scanner(System.in);
 	Scanner LectorInt=new Scanner(System.in);
 	public void ingresarHorario() {
+		
 		System.out.println("Ingrese Actividad");
 		Actividades.add(LectorStr.nextLine());
 		System.out.println("Ingrese horario de inicio");
 		horariosInicio.add(LectorInt.nextInt());
 		System.out.println("Ingrese horario de finalizacion");
 		horariosFin.add(LectorInt.nextInt());
+		
 		System.out.println("Horario ingresado");
+
+
 	}
 	
 	public  void getHorarios() {//
