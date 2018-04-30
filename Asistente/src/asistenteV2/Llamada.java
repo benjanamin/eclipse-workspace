@@ -3,7 +3,6 @@ package asistenteV2;
 public class Llamada {
 	private String numero;
 	private String hora;
-	
 	public Llamada() {
 		
 	}
