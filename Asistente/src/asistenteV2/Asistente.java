@@ -6,13 +6,16 @@ import java.util.Scanner;
 public class Asistente {
 	
 	static ArrayList<Horario> Actividades=new ArrayList<Horario>();
-	static int opcion;
+	static int opcion=0;
 	static boolean statusEspera=false;
 	static Scanner Lector=new Scanner(System.in);
 	static Scanner LectorStr=new Scanner (System.in);
 	
 	public static void main(String[] args) {
-		menu();
+		do {
+			menu();
+		}while(opcion!=5);
+		
 	}
 	
 	public static void menu() {
@@ -27,27 +30,22 @@ public class Asistente {
 		switch(opcion) {
 		case 1:
 			agregarHorario();
-			menu();
-			
 			break;
 		case 2:
 			modoEspera();
 			Lector.nextLine();
-			menu();
 			break;
 		case 3:
 			mostrarHorarios();
 			Lector.nextLine();
-			menu();
 			break;
 		case 4:
 			modificarHorarios();
-			menu();
 			break;
 		case 5:
 			Lector.close();
 			LectorStr.close();
-			System.exit(0);
+			break;
 		}
 		
 	}
@@ -178,9 +176,6 @@ public class Asistente {
 			break;
 		case 2:
 			eliminarHorario(aux-1);
-			break;
-		case 3:
-			menu();
 			break;
 		}
 	

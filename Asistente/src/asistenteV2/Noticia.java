@@ -1,7 +1,11 @@
 package asistenteV2;
 
+import java.util.ArrayList;
+
 public class Noticia {
-	public void News() {
-		System.out.println("Universidad sigue sin estadio JA ");
+	private ArrayList<String> Noticia=new ArrayList<String>();
+	
+	public void News() {	
+		
 	}
 }
