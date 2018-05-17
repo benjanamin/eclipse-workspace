@@ -15,13 +15,20 @@ import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.util.ArrayList;
+
+import javax.swing.JList;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.ListSelectionModel;
 
 public class InterfazVerHorario extends JFrame {
-
+	private  ArrayList<Horario> Actividades=new ArrayList<Horario>();
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTable table;
-
+	private String Texto="";
 	/**
 	 * Launch the application.
 	 */
@@ -53,25 +60,39 @@ public class InterfazVerHorario extends JFrame {
 		btnVolver.setBounds(10, 227, 89, 23);
 		contentPane.add(btnVolver);
 		
-		textField = new JTextField();
-		textField.setBounds(126, 228, 27, 22);
-		contentPane.add(textField);
-		textField.setColumns(10);
+
 		
-		table = new JTable();
-		table.setBounds(274, 231, 1, 1);
-		contentPane.add(table);
+		JButton btnEditar = new JButton("Editar");
+		btnEditar.setBounds(324, 227, 89, 23);
+		contentPane.add(btnEditar);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(382, 11, 17, 205);
-		contentPane.add(scrollBar);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBorder(new LineBorder(new Color(0, 0, 0)));
-		textArea.setBounds(10, 11, 389, 205);
-		contentPane.add(textArea);
+		
+	}
+	
+	public InterfazVerHorario(ArrayList<Horario> lista, String texto) {
+		this.Actividades=lista;
+		this.Texto=texto;
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.setBounds(10, 227, 89, 23);
+		contentPane.add(btnVolver);
+		
+		JButton btnEditar = new JButton("Editar");
+		btnEditar.setBounds(324, 227, 89, 23);
+		contentPane.add(btnEditar);
+		
+		
 		
 		
 		
 	}
 }
+
+

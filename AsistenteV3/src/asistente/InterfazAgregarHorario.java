@@ -30,6 +30,7 @@ public class InterfazAgregarHorario extends JFrame {
 	private JSplitPane splitPane;
 	private JButton btnVolver;
 	private JButton btnAgregar_1;
+	private boolean status;
 	
 	/**
 	 * Launch the application.
@@ -52,7 +53,8 @@ public class InterfazAgregarHorario extends JFrame {
 		});
 	}
 
-	public InterfazAgregarHorario(ArrayList<Horario> lista,String texto) {
+	public InterfazAgregarHorario(ArrayList<Horario> lista,String texto,boolean modoEspera) {
+		this.status=modoEspera;
 		this.Actividades=lista;
 		this.Texto=texto;
 		setTitle("Agregar Horario\r\n");
@@ -93,7 +95,7 @@ public class InterfazAgregarHorario extends JFrame {
 		btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				InterfazMenu menu= new InterfazMenu(Actividades,Texto);
+				InterfazMenu menu= new InterfazMenu(Actividades,Texto,status);
 				menu.setVisible(true);
 				dispose();
 			}
@@ -123,7 +125,7 @@ public class InterfazAgregarHorario extends JFrame {
 					Texto=Texto+ Actividades.get(i).getActividad()+"\n"+Actividades.get(i).getHorarioInicio()
 							+" - "+Actividades.get(i).getHorarioFin()+ "\n";	
 					}
-					InterfazMenu menu= new InterfazMenu(Actividades,Texto);
+					InterfazMenu menu= new InterfazMenu(Actividades,Texto,status);
 					menu.setVisible(true);
 					dispose();
 				}
@@ -200,7 +202,7 @@ public class InterfazAgregarHorario extends JFrame {
 					aux=new Horario(Inicio,Fin,Actividad);
 					Actividades.add(aux);
 					
-					InterfazMenu menu= new InterfazMenu(Actividades,Texto);
+					InterfazMenu menu= new InterfazMenu(Actividades,Texto,status);
 					menu.setVisible(true);
 					dispose();
 				}

@@ -15,11 +15,12 @@ import javax.swing.JTable;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import javax.swing.JCheckBox;
+import javax.swing.JLabel;
 
 public class InterfazMenu extends JFrame {
 	private  ArrayList<Horario> Actividades=new ArrayList<Horario>();
 	private JPanel contentPane;
-	private boolean status=false;
+	private static boolean status=false;
 	private String Texto="";
 	/**
 	 * Launch the application.
@@ -44,9 +45,11 @@ public class InterfazMenu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public InterfazMenu(ArrayList<Horario> lista, String texto) { //Interfaz con horario agregado
+	public InterfazMenu(ArrayList<Horario> lista, String texto,boolean modoEspera) { //Interfaz con horario agregado
+		setTitle("Asistente\r\n");
 		this.Actividades=lista;
 		this.Texto=texto;
+		this.status=modoEspera;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -65,7 +68,7 @@ public class InterfazMenu extends JFrame {
 		JButton btnAgregarActividad = new JButton("Agregar Actividad");
 		btnAgregarActividad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				InterfazAgregarHorario Agregar= new InterfazAgregarHorario(Actividades,Texto);
+				InterfazAgregarHorario Agregar= new InterfazAgregarHorario(Actividades,Texto,status);
 				Agregar.setVisible(true);
 				dispose();
 			}
@@ -83,10 +86,13 @@ public class InterfazMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(status) {
 					status=false;
+					setTitle("Asistente: Modo Espera Activado\r\n");
+					textArea.setText("");
 				}
 				else {
 					status=true;
-					
+					textArea.setText(Texto);
+					setTitle("Asistente\r\n");
 				}
 
 				
@@ -97,6 +103,8 @@ public class InterfazMenu extends JFrame {
 	}
 	
 	public InterfazMenu() {// Interfaz sin ingresar horarios
+		
+		setTitle("Asistente\r\n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -115,7 +123,7 @@ public class InterfazMenu extends JFrame {
 		JButton btnAgregarActividad = new JButton("Agregar Actividad");
 		btnAgregarActividad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				InterfazAgregarHorario Agregar= new InterfazAgregarHorario(Actividades,Texto);
+				InterfazAgregarHorario Agregar= new InterfazAgregarHorario(Actividades,Texto,status);
 				Agregar.setVisible(true);
 				dispose();
 			}
@@ -123,28 +131,28 @@ public class InterfazMenu extends JFrame {
 		});
 		btnAgregarActividad.setBounds(10, 67, 119, 23);
 		contentPane.add(btnAgregarActividad);
-		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(215, 11, 209, 239);
 		contentPane.add(textArea);
-		
 		JButton btnModoEspera = new JButton("Modo espera");
 		btnModoEspera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(status) {
 					status=false;
+					setTitle("Asistente: Modo Espera Activado\r\n");
+					textArea.setText("");
 				}
 				else {
 					status=true;
-					
+					textArea.setText(Texto);
+					setTitle("Asistente");
 				}
 
 				
 			}
 		});
-		btnModoEspera.setBounds(10, 214, 89, 23);
+		btnModoEspera.setBounds(10, 214, 146, 23);
 		contentPane.add(btnModoEspera);
 		
 	}
-	
 }
