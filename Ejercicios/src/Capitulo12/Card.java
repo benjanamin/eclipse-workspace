@@ -1,4 +1,4 @@
-package cartas;
+package Capitulo12;
 
 public class Card {
 	private int rank; //numero
