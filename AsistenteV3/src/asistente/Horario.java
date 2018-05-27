@@ -45,4 +45,10 @@ public class Horario {
 		}
 		return false;
 	}
+	public String toString(){
+		String s="";
+		
+		return "Tienes: "+this.Actividad+"\n"+"De: "+this.horarioInicio+" a "+this.horarioFin;
+		
+	}
 }

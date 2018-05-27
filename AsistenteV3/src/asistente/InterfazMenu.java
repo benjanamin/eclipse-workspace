@@ -19,27 +19,32 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
 public class InterfazMenu extends JFrame {
-	private  ArrayList<Horario> Actividades=new ArrayList<Horario>();
+	private static  ArrayList<Horario> Actividades=new ArrayList<Horario>();
 	private JPanel contentPane;
 	private static boolean status=false;
-	private String Texto="";
+	private static String Texto="";
+	private static boolean prendido=false;
+	JTextArea textArea;
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					
-					InterfazMenu frame = new InterfazMenu();
-					frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-					
-				}
+		InterfazMenu frame = new InterfazMenu(Actividades,Texto,status);
+		frame.setVisible(true);
+		while(true) {
+			
+			addTexto("hola");
+			frame.addTexto("hola");
+			
+			if(frame.status) {
+			System.out.println("hola");	
+			
 			}
-		});
+			
+			
+		
+		}
+		
 		
 	}
 
@@ -191,6 +196,14 @@ public class InterfazMenu extends JFrame {
 		});
 		btnModoEspera.setBounds(10, 214, 89, 23);
 		contentPane.add(btnModoEspera);
-	}	
+	}
+	
+	
+	public static void addTexto(String s) {
+		Texto=Texto+"\n"+s;
+	}
+	public void printhora() {
+		System.out.println("hola");
+	}
 
 }

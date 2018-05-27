@@ -75,6 +75,10 @@ public class InterfazVerHorario extends JFrame {
 
 		
 		JButton btnEditar = new JButton("Editar");
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnEditar.setBounds(324, 227, 89, 23);
 		contentPane.add(btnEditar);
 		
@@ -120,16 +124,13 @@ public class InterfazVerHorario extends JFrame {
 		btnVolver.setBounds(10, 227, 89, 23);
 		contentPane.add(btnVolver);
 		
-		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(324, 227, 89, 23);
-		contentPane.add(btnEditar);
+		
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(27, 24, 369, 184);
 		contentPane.add(scrollPane);
 		DefaultTableModel modelo = new DefaultTableModel();
 		JTable table_1 = new JTable(modelo);
-		
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
@@ -145,9 +146,20 @@ public class InterfazVerHorario extends JFrame {
 			 fila[2] = Actividades.get(i).getHorarioFin();
 			 ((DefaultTableModel) table_1.getModel()).addRow(fila);
 		}
+		
 		scrollPane.setViewportView(table_1);
 		
-		
+		JButton btnEditar = new JButton("Editar");
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(table_1.getSelectedRow());
+				InterfazEditarHorario editarHorario= new InterfazEditarHorario(Actividades,Texto,status,table_1.getSelectedRow());
+				editarHorario.setVisible(true);
+				dispose();
+			}
+		});
+		btnEditar.setBounds(324, 227, 89, 23);
+		contentPane.add(btnEditar);
 		
 	}
 }
