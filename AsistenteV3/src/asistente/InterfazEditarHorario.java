@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -161,6 +164,7 @@ public class InterfazEditarHorario extends JFrame {
 				else  if(Inicio.charAt(2)==':'&&Inicio.length()==5&&Fin.charAt(2)==':'&&Fin.length()==5){
 					aux=new Horario(Inicio,Fin,Actividad);
 					Actividades.set(index, aux);
+					Insercion(Actividades);
 					InterfazMenu menu= new InterfazMenu(Actividades,Texto,status);
 					menu.setVisible(true);
 					dispose();
@@ -170,4 +174,14 @@ public class InterfazEditarHorario extends JFrame {
 		});
 		splitPane.setRightComponent(btnListo);
 	}
+	public static void Insercion (ArrayList<Horario> vector) {
+	      for (int i=1; i < vector.size(); i++) {
+	        Horario aux = vector.get(i);
+	         int j;
+	         for (j=i-1; j >=0 && vector.get(j).IniciotoInt() > aux.IniciotoInt(); j--){
+	              vector.set(j+1, vector.get(j));
+	          }
+	         vector.set(j+1, aux);
+	      }
+	   }
 }
