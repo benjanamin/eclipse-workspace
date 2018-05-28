@@ -113,6 +113,7 @@ public class InterfazAgregarHorario extends JFrame {
 				String Inicio;
 				String Fin;
 				String Actividad;
+				boolean correcto=true;
 				Horario aux;
 				Actividad=tfActividad.getText();
 				Inicio=tfHorarioInicio.getText();
@@ -124,11 +125,34 @@ public class InterfazAgregarHorario extends JFrame {
 				}
 				else  if(Inicio.charAt(2)==':'&&Inicio.length()==5&&Fin.charAt(2)==':'&&Fin.length()==5){
 					aux=new Horario(Inicio,Fin,Actividad);
-					Actividades.add(aux);
-					Insercion(Actividades);
-					InterfazMenu menu= new InterfazMenu(Actividades,Texto,status);
-					menu.setVisible(true);
-					dispose();
+					if(Actividades.isEmpty()) {
+						Actividades.add(aux);
+						Insercion(Actividades);
+						InterfazMenu menu= new InterfazMenu(Actividades,Texto,status);
+						menu.setVisible(true);
+						dispose();
+					}
+					else {
+						for(int index=0;index<Actividades.size();index++) {
+							if(Actividades.get(index).IniciotoInt()<=aux.IniciotoInt()&&aux.IniciotoInt()<=Actividades.get(index).FinotoInt()) {
+								correcto=false;
+								JOptionPane.showMessageDialog(null,"Horario ocupado");
+								break;
+							}
+							if(Actividades.get(index).IniciotoInt()<=aux.FinotoInt()&&aux.FinotoInt()<=Actividades.get(index).FinotoInt()) {
+								correcto=false;
+								JOptionPane.showMessageDialog(null,"Horario ocupado");
+								break;
+							}
+						}
+						if(correcto) {
+							Actividades.add(aux);
+							Insercion(Actividades);
+							InterfazMenu menu= new InterfazMenu(Actividades,Texto,status);
+							menu.setVisible(true);
+							dispose();
+						}
+					}
 				}
 				
 			}
