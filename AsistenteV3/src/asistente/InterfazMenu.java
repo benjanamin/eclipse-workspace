@@ -33,8 +33,8 @@ public class InterfazMenu extends JFrame {
 		frame.setVisible(true);
 		while(true) {
 			
-			addTexto("hola");
-			frame.addTexto("hola");
+			addTexto("Llamada x");
+			frame.addTexto("Noticia x");
 			
 			if(frame.status) {
 			System.out.println("hola");	
