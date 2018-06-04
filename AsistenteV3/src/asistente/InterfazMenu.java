@@ -10,6 +10,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
@@ -31,14 +33,16 @@ public class InterfazMenu extends JFrame {
 	public static void main(String[] args) {
 		InterfazMenu frame = new InterfazMenu(Actividades,Texto,status);
 		frame.setVisible(true);
+		String texto=" ";
+		
+		System.out.println(45%5);
 		while(true) {
-			
-			addTexto("Llamada x");
-			frame.addTexto("Noticia x");
-			
-			if(frame.status) {
-			System.out.println("hola");	
-			
+			Calendar cal=new GregorianCalendar();
+			int second;
+			second=cal.get(Calendar.SECOND);
+			frame.textArea.setText(Integer.toString(second));
+			if((second%5)==0) {
+				System.out.println("Anpan");
 			}
 			
 			
@@ -67,7 +71,7 @@ public class InterfazMenu extends JFrame {
 		scrollPane.setBounds(219, 11, 205, 239);
 		contentPane.add(scrollPane);
 		
-		JTextArea textArea = new JTextArea();
+		 textArea = new JTextArea();
 		textArea.setEditable(false);
 		scrollPane.setViewportView(textArea);
 		JButton btnVerHorarios = new JButton("Ver Horarios");
@@ -172,7 +176,7 @@ public class InterfazMenu extends JFrame {
 		btnAgregarActividad.setBounds(10, 67, 119, 23);
 		contentPane.add(btnAgregarActividad);
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
 		
 		textArea.setText(Texto);

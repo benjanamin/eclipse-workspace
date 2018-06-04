@@ -1,0 +1,6 @@
+No los separe en a y b , pero el codigo esta basado en las 2 preguntas
+Se cambio que las subclases de celular ahora funcionan con posicion simulando , el codigo parte con una posicion dada,
+no puse que cambiaran en el while porque aumentaba exponencialmente y no se lograba ver cuando funcionaba, el metodo
+toString habia sido sobreescrito anteriormente
+
+El archivo main se llama APP

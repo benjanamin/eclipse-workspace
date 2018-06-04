@@ -1,0 +1,2 @@
+No los separe en a y b , pero el codigo esta basado en las 2 preguntas,
+El archivo main se llama APP

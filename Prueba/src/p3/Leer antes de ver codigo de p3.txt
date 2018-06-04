@@ -1,0 +1,8 @@
+No los separe en a y b , pero el codigo esta basado en las 2 preguntas
+Se añadieron 2 clases, una que se encarga de ver los puntajes y otra que se encarga del local como tal y genera la ruta
+
+
+El archivo main se llama APP
+pd: Revisar mi github, el unico cap que no logre terminar fue el 14, todos los demas estan hechos en la carpeta ejercicios
+Los primeros estan en el defaul , luego estan guardadso por el numero de ejercicio establecido en los ppt, el 12 esta
+repetido 2 veces
