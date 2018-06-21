@@ -40,8 +40,11 @@ public class InterfazMenu extends JFrame {
 			Calendar cal=new GregorianCalendar();
 			int second;
 			second=cal.get(Calendar.SECOND);
-			frame.textArea.setText(Integer.toString(second));
-			if((second%5)==0) {
+			if(!status) {
+				frame.textArea.setText(Integer.toString(second));	
+			}
+			
+			if((second%10)==0) {
 				System.out.println("Anpan");
 			}
 			
@@ -191,7 +194,8 @@ public class InterfazMenu extends JFrame {
 				}
 				else {
 					status=true;
-					textArea.setText(Texto);
+					
+					textArea.setText(Actividades.toString());
 					setTitle("Asistente\r\n");
 				}
 
